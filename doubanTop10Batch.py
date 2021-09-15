@@ -19,7 +19,9 @@ def get_request(page):
 def get_content(request):
 
     response = urllib.request.urlopen(request)
+
     content = response.read().decode('utf-8')
+
     return content
 
 
