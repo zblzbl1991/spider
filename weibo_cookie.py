@@ -10,8 +10,13 @@ headers = {
 
 }
 request=urllib.request.Request(url=url,headers=headers)
-response = urllib.request.urlopen(request)
-lines = response.read().decode('utf-8')
-print(lines)
+# response = urllib.request.urlopen(request)
+# lines = response.read().decode('utf-8')
+# print(lines)
 # for line in lines:
 #     print(line)
+http_handler = urllib.request.HTTPHandler()
+opener = urllib.request.build_opener(http_handler)
+opener_open = opener.open(request)
+decode = opener_open.read().decode('utf-8')
+print(decode)
